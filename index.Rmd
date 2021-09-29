@@ -13,6 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, cache=TRUE)
 ```
 
+
 ## {data-background=img/map2.svg data-background-size=contain}
 
 ```{r, echo = FALSE, message = FALSE, results='hide'}
@@ -42,19 +43,8 @@ dev.off()
 ```
 
 
-## A minimal number of well-known dependencies
+## Typical workflow {data-background=img/workflow.png data-background-size=contain}
 
-```{r, echo = FALSE, eval = FALSE, results='hide'}
-library(deepdep)
-dep <- deepdep("mapsf", depth = 6)
-png("img/deps.png", width  = 700, height = 550)
-plot_dependencies(dep, "circular", same_level = TRUE, reverse = TRUE)
-dev.off()
-
-```
-<center>
-<img src="img/deps.png" width=700px class="center"/>
-</center>
 
 ## `mf_map()`
 
@@ -125,7 +115,7 @@ mf_map(x = mtq)
 # 
 #
 ```
-```{r a0, message = FALSE, results='hide', fig.width = 5, fig.height=5, eval=TRUE, echo=FALSE}
+```{r a0, message = FALSE, results='hide', fig.width = 5, fig.height=5, eval=TRUE, echo=FALSE, cache = TRUE}
 ```
 </div>
 
@@ -415,6 +405,12 @@ mf_inset_off()
 ```
 </div>
 
+## Insets - [Vignette](https://riatelab.github.io/mapsf/articles/web_only/how_to_create_inset_maps.html) {.smaller}
+
+<center>
+![](img/insethist.png)
+</center>
+
 ## Themes - [Vignette](https://riatelab.github.io/mapsf/articles/web_only/how_to_use_themes.html) {.smaller}
 
 <div class="columns-3">
@@ -539,13 +535,42 @@ mf_title("mf_background()")
 </div>
 
 
-## To be done
+## Next features
 
-![](img/raster.png)
+- Legends for rasters (continuous, classes, categories)  
+
+- Horizontal layout for legends  
+
+- [You tell me!](https://github.com/riatelab/mapsf/issues)  
+
+## Development {.smaller}
+
+A minimal number of well-known dependencies
+
+
+```{r, echo = FALSE, eval = FALSE, results='hide'}
+library(deepdep)
+dep <- deepdep("mapsf", depth = 6)
+png("img/deps.png", width  = 600, height = 450)
+plot_dependencies(dep, "circular", same_level = TRUE, reverse = TRUE, main = 'toto')
+dev.off()
+
+```
+<center>
+<img src="img/deps.png" width=600px class="center"/>
+</center>
+
+## Development
+
+- CI/CD with [GitHub Actions](https://github.com/riatelab/mapsf/actions)   
+
+- Tests with `tinytest` package, coverage with [Codecov](https://app.codecov.io/gh/riatelab/mapsf)     
+
+- Informative commit messages with [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/)
 
 
 
-## https://riatelab.github.io/mapsf/
+## [riatelab.github.io/mapsf](https://riatelab.github.io/mapsf/)
 
 <center>
 [<img src="img/website.png" width=800px />](https://riatelab.github.io/mapsf/)
