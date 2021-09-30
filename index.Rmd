@@ -364,28 +364,6 @@ mf_arrow('topleft')
 
 </div>
 
-## Pipe(s) {.smaller}
-
-<div class="columns-2">
-
-
-```{r, message = FALSE, results='hide', fig.width = 3.5, fig.height=3.5}
-mf_theme("green", line = 1, cex = 0.8)
-mtq |>
-  mf_map() |>
-  mf_map("POP", "prop")
-mf_title("Population")
-
-library(magrittr)
-mf_theme("agolalight")
-mtq %>% 
-  mf_map() %>%
-  mf_map(c("POP","MED"), "prop_choro") 
-mf_title("Population and Wealth")
-
-```
-
-</div>
 
 ## Insets - [Vignette](https://riatelab.github.io/mapsf/articles/web_only/how_to_create_inset_maps.html) {.smaller}
 
@@ -472,7 +450,7 @@ mf_title("Custom")
 ```{r raster, eval = FALSE}
 library(maptiles)
 osm <- get_tiles(
-  x = mtq, 
+  x = mtq,
   provider = "Stamen.TerrainBackground", 
   crop= TRUE, zoom = 11
 )
@@ -482,11 +460,11 @@ mf_map(mtq, border = "tomato4", col = NA,
        add = TRUE)
 mf_scale()
 mf_title("mf_raster()")
-mf_credits(txt = get_credit("OpenStreetMap"))
+mf_credits(
+  txt = get_credit("Stamen.TerrainBackground")
+)
 ```
 <br/>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -504,7 +482,7 @@ mf_raster(osm)
 mf_map(mtq, border = "tomato4", col = NA, add = TRUE)
 mf_scale()
 mf_title("mf_raster()")
-mf_credits(txt = get_credit("OpenStreetMap"))
+mf_credits(txt = get_credit("Stamen.TerrainBackground"))
 
 
 ```
